@@ -19,7 +19,7 @@
   <h2>Skin Condition Predictor</h2>
   <form method="POST" action="/predict"> 
     <label for="condition">Condition</label>
-    <select id="condition" name="Condition" required>
+    <select id="condition" name="Main_Condition" required>
       <option value="" disabled selected>Select Condition</option>
       <option value="Acne">Acne</option>
       <option value="Open Pores">Open Pores</option>
@@ -52,22 +52,12 @@
   <div class="results">
     <h3>Prediction Results</h3>
     <ul>
-      <li><strong>Condition:</strong> {{ inputs.Condition }}</li>
-      <li><strong>Subtype:</strong> {{ inputs.Subtype }}</li>
-      <li><strong>Recommended Nutrient 1:</strong> {{ prediction.Nutrient_1 }}</li>
-      <li><strong>Recommended Nutrient 2:</strong> {{ prediction.Nutrient_2 }}</li>
-      <li><strong>Recommended Nutrient 3:</strong> {{ prediction.Nutrient_3 }}</li>
-      <li><strong>Recommended Ingredient 1:</strong> {{ prediction.Ingredient_1 }}</li>
-      <li><strong>Recommended Ingredient 2:</strong> {{ prediction.Ingredient_2 }}</li>
-      <li><strong>Recommended Ingredient 3:</strong> {{ prediction.Ingredient_3 }}</li>
-      <li><strong>Recommended Product 1:</strong> {{ prediction.Product_1 }}</li>
-      <li><strong>Recommended Product 2:</strong> {{ prediction.Product_2 }}</li>
-      <li><strong>Recommended Product 3:</strong> {{ prediction.Product_3 }}</li>
-      <li><strong>Recommended Type 1:</strong> {{ prediction.Type_1 }}</li>
-      <li><strong>Recommended Type 2:</strong> {{ prediction.Type_2 }}</li>
-      <li><strong>Recommended Type 3:</strong> {{ prediction.Type_3 }}</li>
+      {% for key, value in prediction.items() %}
+        <li><strong>{{ key.replace('_', ' ').title() }}:</strong> {{ value }}</li>
+      {% endfor %}
     </ul>
   </div>
-  {% endif %}
+{% endif %}
+  
 </body>
 </html>

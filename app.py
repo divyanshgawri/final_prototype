@@ -5,7 +5,7 @@ import joblib
 app = Flask(__name__)
 
 # Load the models and encoders
-model = joblib.load('/home/divyansh/Desktop/ee/final_prototype/label_encoded_model.pkl')
+model = joblib.load('/home/divyansh/Desktop/ee/label_encoded_model.pkl')
 input_encoders = joblib.load('/home/divyansh/Desktop/ee/final_prototype/input_label_encoders.pkl')
 output_encoders = joblib.load('/home/divyansh/Desktop/ee/final_prototype/output_label_encoders.pkl')
 
